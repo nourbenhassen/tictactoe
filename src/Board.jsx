@@ -6,21 +6,25 @@ class Board extends React.Component {
     constructor (props) {
       super(props)
       this.state={
-        squares: Array(9).fill(null),
-        alt: "O"
+        squares: Array(9).fill(null)
+        //alt: "O"
       }
     }
     
     handleClick(i) {
       const squares = this.state.squares.slice()
-      if(!squares[i] && this.state.alt==="O"){ 
+      if(!squares[i]){ 
         squares[i]='X';
-        this.state.alt="X";
+        let j = randomEmptySquare(this.state.squares);
+        squares[j]='O';
+        //this.state.alt="X";
       }
-      else if(!squares[i] && this.state.alt==="X"){
+      /*else if(!squares[i] && this.state.alt==="X"){
+
         squares[i]='O';
         this.state.alt="O";
-      }
+      }*/
+
       this.setState({
         squares: squares
       })
@@ -66,6 +70,8 @@ class Board extends React.Component {
     }
   }
 
+
+//function to check if there's a winner
   function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -85,5 +91,15 @@ class Board extends React.Component {
     }
     return null;
   }
+
+  //function to find emptySquare when computer plays
+  function randomEmptySquare(squares) {
+    //chooses random number between 0 and 8
+    let j = Math.floor(Math.random() * 9);
+    //if square empty returns j
+    if (squares[j]===null) return j;
+    //if square not empty call function again until empty j is found - recursion
+    else return randomEmptySquare(squares);
+}
 
   export default Board
