@@ -20,15 +20,14 @@ class Board extends React.Component {
       const squares = this.state.squares.slice()
       if(!squares[i]){ 
         squares[i]='X';
-        let j = functions.AISquare(this.state.squares);  //MODIFICATION HERE
-        squares[j]='O';
+        computerPlays(squares);
       }
       
       this.setState({
         squares: squares
       })
     }
-    
+
     renderSquare(i) {
       return <Square 
                value={this.state.squares[i]} 
@@ -68,5 +67,13 @@ class Board extends React.Component {
       );
     }
   }
+
+  function computerPlays(squares){
+    let j = functions.AISquare(squares);  //MODIFICATION HERE
+    return squares[j]='O';
+        /*this.setState({
+            squares: squares
+      })*/
+    }
 
   export default Board
