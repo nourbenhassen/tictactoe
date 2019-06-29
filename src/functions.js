@@ -21,9 +21,9 @@ module.exports = {
         return null;
       },
       randomEmptySquare(squares) {
-        let j = Math.floor(Math.random() * 9);     //chooses random number between 0 and 8
-        if (squares[j]===null) return j;        //if square empty returns j
-        else return this.randomEmptySquare(squares);      //if square not empty call function again until empty j is found - recursion  
+          let emptySpots = squares.filter(item => item===null)
+        let j = Math.floor(Math.random() * emptySpots.length);     //chooses random number between 0 and 8
+         return j; 
     },
     AISquare(squares) {
         //chooses best strategic number between 0 and 8

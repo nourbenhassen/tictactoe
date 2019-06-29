@@ -4,9 +4,8 @@ import functions from "./functions"
 //var functions = require('./functions.js');
 // functions import not working - problem coming from this keyword ?
 
-
-
-// to correct: when X plays O doesn't see immediately new Board, but needs to wait a round after to be able to see it ==> state is not updated before computer plays
+//BUG to correct: when final square clicked there's a bug
+//TO IMPROVE: unbeatable AI ; now when you play 0, 6, 4 then you win 
 
 class Board extends React.Component {
     constructor (props) {
