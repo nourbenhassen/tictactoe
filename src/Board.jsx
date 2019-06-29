@@ -1,10 +1,7 @@
 import React from "react"
 import Square from "./Square"
 import functions from "./functions"
-//var functions = require('./functions.js');
-// functions import not working - problem coming from this keyword ?
 
-//BUG to correct: when final square clicked there's a bug
 //TO IMPROVE: unbeatable AI ; now when you play 0, 6, 4 then you win 
 
 class Board extends React.Component {
@@ -36,7 +33,7 @@ class Board extends React.Component {
   
     render() {
       
-      const winner = functions.calculateWinner(this.state.squares);   //MODIFICATION HERE
+      const winner = functions.calculateWinner(this.state.squares);
       let status;
       if (winner) {
           status = 'Winner: ' + winner;
@@ -68,11 +65,8 @@ class Board extends React.Component {
   }
 
   function computerPlays(squares){
-    let j = functions.AISquare(squares);  //MODIFICATION HERE
+    let j = functions.AISquare(squares); 
     return squares[j]='O';
-        /*this.setState({
-            squares: squares
-      })*/
     }
 
   export default Board

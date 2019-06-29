@@ -22,11 +22,11 @@ module.exports = {
       },
       randomEmptySquare(squares) {
           let emptySpots = squares.filter(item => item===null)
-        let j = Math.floor(Math.random() * emptySpots.length);     //chooses random number between 0 and 8
+        let j = Math.floor(Math.random() * emptySpots.length);     //chooses random number between empty squares
          return j; 
     },
     AISquare(squares) {
-        //chooses best strategic number between 0 and 8
+        //chooses best strategic number between empty spots
         // Strategy:if 2 "X" are part of a winning combination take the 3rd square
         // if not take random number instead
         const lines = [
