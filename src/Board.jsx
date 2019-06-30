@@ -1,23 +1,31 @@
 import React from "react"
 import Square from "./Square"
 import functions from "./functions"
+import Game from "./Game";
 
 //TO IMPROVE: unbeatable AI ; now when you play 0, 6, 4 then you win 
+//Add option one player or two players
+//My game will reset as soon as it's over so I can play again
+// I can choose whether I want to play as X or O.
 
 class Board extends React.Component {
     constructor (props) {
       super(props)
       this.state={
-        squares: Array(9).fill(null)
+        squares: Array(9).fill(null),
+        isXnext:'false'
       }
     }
     
     handleClick(i) {
-      const squares = this.state.squares.slice()
-      if(!squares[i]){ 
-        squares[i]='X';
-        computerPlays(squares);
+      console.log(this.props);      
+      /*if (this.props.NbPLayers){
+        const squares = this.state.squares.slice()
+        if(!squares[i]){ 
+          squares[i]='X';
+          computerPlays(squares);
       }
+      }*/
       
       this.setState({
         squares: squares
@@ -42,7 +50,7 @@ class Board extends React.Component {
         status = 'Next player: ' + (this.state.alt==="X" ? "O" : "X");
       }
       return (
-        <div>
+        <div className='board'>
           <div className="status">{status}</div>
           <div className="board-row">
             {this.renderSquare(0)}
