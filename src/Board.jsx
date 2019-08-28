@@ -1,31 +1,26 @@
 import React from "react"
 import Square from "./Square"
 import functions from "./functions"
-import Game from "./Game";
 
 //TO IMPROVE: unbeatable AI ; now when you play 0, 6, 4 then you win 
-//Add option one player or two players
-//My game will reset as soon as it's over so I can play again
-// I can choose whether I want to play as X or O.
 
 class Board extends React.Component {
     constructor (props) {
       super(props)
       this.state={
         squares: Array(9).fill(null),
-        isXnext:'false'
+        alt: "O",
+        started: false
       }
     }
     
     handleClick(i) {
-      console.log(this.props);      
-      /*if (this.props.NbPLayers){
-        const squares = this.state.squares.slice()
-        if(!squares[i]){ 
-          squares[i]='X';
-          computerPlays(squares);
+      const squares = this.state.squares.slice()
+      this.state.started = true;
+      if(!squares[i]){ 
+        squares[i]='X';
+        computerPlays (squares);
       }
-      }*/
       
       this.setState({
         squares: squares
@@ -47,10 +42,11 @@ class Board extends React.Component {
           status = 'Winner: ' + winner;
       }
       else {
-        status = 'Next player: ' + (this.state.alt==="X" ? "O" : "X");
+        //status = 'Next player: ' + (this.state.alt==="X" ? "O" : "X");
       }
       return (
-        <div className='board'>
+        <div className="board">
+                 <p> {this.state.started ? "": "You can start the game now"} </p>
           <div className="status">{status}</div>
           <div className="board-row">
             {this.renderSquare(0)}
@@ -74,6 +70,7 @@ class Board extends React.Component {
 
   function computerPlays(squares){
     let j = functions.AISquare(squares); 
+    
     return squares[j]='O';
     }
 

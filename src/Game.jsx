@@ -30,8 +30,6 @@ class Game extends React.Component {
             <div>{/* status */}</div>
             <ol>{/* TODO */}</ol>
           </div>
-          <button value={2} onClick={this.handleClick}>2 players</button>
-          <button value={1} onClick={this.handleClick}>1 player</button>
         </div>
       );
     }
