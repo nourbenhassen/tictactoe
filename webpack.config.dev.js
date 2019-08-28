@@ -7,7 +7,7 @@ module.exports = merge(config, {
   mode: "development",
   devtool: "source-map",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "build"),
     port: 3000,
     historyApiFallback: true,
     hot: true,

@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "ts-node server.ts",
     "build": "webpack --config ./webpack.config.prod.js",
     "dev": "webpack-dev-server  --config ./webpack.config.dev.js"
   },
+  "homepage": "https://nourbenhassen.github.io/tictactoe",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/request": "2.48.1",
     "express": "4.16.4",
+    "gh-pages": "^2.1.1",
     "history": "4.9.0",
     "lodash": "4.17.11",
     "react": "16.8.3",

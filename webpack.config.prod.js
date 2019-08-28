@@ -7,5 +7,5 @@ module.exports = merge(config, {
   optimization: {
     minimize: true
   },
-  plugins: config.plugins.concat([new CleanWebPackPlugin(["dist"])])
+  plugins: config.plugins.concat([new CleanWebPackPlugin(["build"])])
 });

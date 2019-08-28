@@ -1,7 +1,7 @@
 
 module.exports = {
 
-     calculateWinner(squares) {    ////function to check if there's a winner
+     calculateWinner(squares) {    //function to check if there's a winner
         const lines = [
           [0, 1, 2],
           [3, 4, 5],

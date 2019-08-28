@@ -10,7 +10,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "outDir": "dist",
+    "outDir": "build",
     "lib": [
       "esnext",
       "dom"
@@ -22,6 +22,6 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "build"
   ]
 }
